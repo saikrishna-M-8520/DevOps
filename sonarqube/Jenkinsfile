@@ -14,16 +14,16 @@ pipeline{
                 sh 'mvn clean package'
             }
          }
-        stage('SonarQube analysis') {
-//    def scannerHome = tool 'SonarScanner 4.0';
-        steps{
-        withSonarQubeEnv('sonarqube-8.3') { 
-        // If you have configured more than one global server connection, you can specify its name
-//      sh "${scannerHome}/bin/sonar-scanner"
-        sh "mvn clean package sonar:sonar"
+      stage('SonarQube analysis') {
+         environment {
+         MAVEN_OPTS = "--add-opens=java.base/java.lang=ALL-UNNAMED"
+         }
+          steps {
+             withSonarQubeEnv('sonarqube-8.3') {
+               sh "mvn clean package sonar:sonar"
+        }
     }
-        }
-        }
+}
         stage('Upload jar To Nexus'){
             steps{
                 script{
@@ -40,7 +40,7 @@ pipeline{
                     nexusUrl: '13.201.104.202:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
-                    repository: 'vprofile-release',
+                    repository: 'check-repo',
                     version: '1'
                 }
             }
