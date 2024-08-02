@@ -1,7 +1,24 @@
 <project>
   <modelVersion>4.0.0</modelVersion>
- 
+
   <groupId>com.mycompany.app</groupId>
   <artifactId>my-app</artifactId>
   <version>1</version>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>4.2.0.1873</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <properties>
+    <sonar.host.url>http://65.0.122.213:9000</sonar.host.url> <!-- Update to your SonarQube server URL -->
+    <sonar.login>4f00ff45286dfb589a3400fbdf1416759a092f70</sonar.login> <!-- Update to your SonarQube token -->
+    <sonar.java.binaries>${project.build.directory}/classes</sonar.java.binaries>
+  </properties>
 </project>
+
