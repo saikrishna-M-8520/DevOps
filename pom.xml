@@ -16,8 +16,8 @@
   </build>
 
   <properties>
-    <sonar.host.url>http://65.0.122.213:9000</sonar.host.url> <!-- Update to your SonarQube server URL -->
-    <sonar.login>4f00ff45286dfb589a3400fbdf1416759a092f70</sonar.login> <!-- Update to your SonarQube token -->
+    <sonar.host.url>http://3.86.88.146:9000</sonar.host.url> <!-- Update to your SonarQube server URL -->
+    <sonar.login>a71c4814a1bb08cc119b07920e3fcacc343abc3d</sonar.login> <!-- Update to your SonarQube token -->
     <sonar.java.binaries>${project.build.directory}/classes</sonar.java.binaries>
   </properties>
 </project>
