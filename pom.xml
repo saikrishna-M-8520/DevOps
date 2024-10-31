@@ -1,24 +1,42 @@
-<project>
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.mycompany.app</groupId>
-  <artifactId>my-app</artifactId>
-  <version>1</version>
+    <groupId>com.example</groupId>
+    <artifactId>my-java17-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>My Java 17 Maven App</name>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.sonarsource.scanner.maven</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <version>4.2.0.1873</version>
-      </plugin>
-    </plugins>
-  </build>
+    <build>
+        <plugins>
+            <!-- Compiler plugin to specify Java version -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
 
-  <properties>
-    <sonar.host.url>http://3.86.88.146:9000</sonar.host.url> <!-- Update to your SonarQube server URL -->
-    <sonar.login>a71c4814a1bb08cc119b07920e3fcacc343abc3d</sonar.login> <!-- Update to your SonarQube token -->
-    <sonar.java.binaries>${project.build.directory}/classes</sonar.java.binaries>
-  </properties>
+            <!-- SonarQube Maven plugin -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>4.2.0.1873</version>
+            </plugin>
+        </plugins>
+    </build>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- SonarQube Properties -->
+        <sonar.host.url>http://65.2.189.1:9000</sonar.host.url> <!-- Update to your SonarQube server URL -->
+        <sonar.login>1e17224d3218a2b136e3f9c397ec1d9a20df6c40</sonar.login> <!-- Update to your SonarQube token -->
+        <sonar.java.binaries>${project.build.directory}/classes</sonar.java.binaries>
+    </properties>
 </project>
-
