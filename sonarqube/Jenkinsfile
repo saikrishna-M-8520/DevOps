@@ -29,15 +29,15 @@ pipeline{
                 script{
                     nexusArtifactUploader artifacts: [
                         [
-                            artifactId: 'my-app', 
+                            artifactId: 'my-java17-app', 
                             classifier: '', 
-                            file: "target/my-app-1.jar", 
+                            file: "target/my-java17-app-1.0-SNAPSHOT.jar", 
                             type: 'jar'
                         ]
                     ], 
                     credentialsId: 'nexus3', 
                     groupId: 'com.mycompany.app', 
-                    nexusUrl: '3.87.187.115:8081', 
+                    nexusUrl: '13.232.148.227:8081', 
                     nexusVersion: 'nexus3', 
                     protocol: 'http', 
                     repository: 'check-repo',
